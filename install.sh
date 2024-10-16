@@ -1,7 +1,5 @@
 #!/bin/bash
-
 # This script installs necessary packages and sets up the Debian Helper service.
-
 # Function to update the system
 update_system() {
     echo -e "\e[34mUpdating system...\e[0m"
@@ -43,7 +41,7 @@ EOF
 # Main script execution
 echo -e "\e[34mStarting installation...\e[0m"
 
-update_system
+update_systemy
 install_packages
 create_service
 

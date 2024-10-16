@@ -1,14 +1,15 @@
+source ./style.sh
 #!/bin/bash
 # This script installs necessary packages and sets up the Debian Helper service.
 # Function to update the system
 update_system() {
-    echo -e "\e[34mUpdating system...\e[0m"
+    print "Updating system..." "green" "black" "bold"
     sudo apt update && sudo apt upgrade -y
 }
 
 # Function to install required packages
 install_packages() {
-    echo -e "\e[34mInstalling required packages...\e[0m"
+    print "Installing required packages..." "green" "black" "bold"
     sudo apt-get install -y curl jq
 }
 
@@ -16,7 +17,7 @@ install_packages() {
 create_service() {
     SERVICE_FILE="/etc/systemd/system/debian-helper.service"
 
-    echo -e "\e[34mCreating systemd service...\e[0m"
+    print "Creating systemd service..." "green" "black" "bold"
     cat <<EOF | sudo tee $SERVICE_FILE > /dev/null
 [Unit]
 Description=Debian Helper Service
@@ -35,14 +36,14 @@ EOF
     sudo systemctl enable debian-helper.service
     sudo systemctl start debian-helper.service
 
-    echo -e "\e[32mSystemd service created and started successfully.\e[0m"
+   print "Systemd service created and started successfully. " "green" "black" "bold"
 }
 
 # Main script execution
-echo -e "\e[34mStarting installation...\e[0m"
+print "Starting installation..." "green" "black" "bold"
 
 update_systemy
 install_packages
 create_service
 
-echo -e "\e[32mInstallation completed successfully!\e[0m"
+print "Installation complete." "green" "black" "bold"

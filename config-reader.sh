@@ -1,3 +1,4 @@
+source ./style.sh
 # Function: read_config
 # Description: Reads configuration settings from a specified configuration file.
 # Parameters: None
@@ -6,9 +7,9 @@ function read_config() {
     CONFIG_FILE="$CONFIG_DIR/config.json"
     
     if [ -f "$CONFIG_FILE" ]; then
-        echo "Reading configuration from $CONFIG_FILE"
+        print "Reading configuration from $CONFIG_FILE" "magenta" "black" "bold"
         cat "$CONFIG_FILE"
     else
-        echo "No configuration found at $CONFIG_FILE"
+        print "Configuration file not found at $CONFIG_FILE" "red" "black" "bold"
     fi
 }

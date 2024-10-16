@@ -1,4 +1,5 @@
 #!/bin/bash
+source ../style.sh
 
 # Git Configuration
 echo "Configuring Git..."
@@ -7,62 +8,62 @@ git config --global user.email "your_email@example.com"  # Replace with your act
 
 # Python Installation Check 
 if command -v python3 &>/dev/null; then
-    echo "Python 3 is already installed."
+    printf "Python 3 is already installed." "yellow" "black" "bold" 
 else
-    echo "Python 3 is not installed. Installing Python 3..."
+  print "Python 3 is not installed. Installing Python 3..." "green" "black" "bold"
     apt install -y python3
 fi
 
 # Pip Installation Check
 if command -v pip3 &>/dev/null; then
-    echo "pip is already installed."
+    print "pip is already installed." "yellow" "black" "bold"
 else
-    echo "pip is not installed. Installing pip..."
+    print "pip is not installed. Installing pip..." "green" "black" "bold"
     apt install -y python3-pip
 fi
 
 # venv check
 if python3 -m venv --help &>/dev/null; then
-    echo "venv is already installed."
+   print "venv is already installed." "yellow" "black" "bold"
 else
-    echo "venv is not installed. Installing python3-venv..."
+    print "venv is not installed. Installing venv..." "green" "black" "bold"
     apt install -y python3-venv
 fi
 
-echo "All required packages are installed."
+print "All required packages are installed." "green" "black" "bold"
 
 # Node.js Installation Check
 if command -v node &>/dev/null; then
-    echo "Node.js is already installed."
+    print  "Node.js is already installed." "yellow" "black" "bold"
 else
-    echo "Node.js is not installed. Installing Node.js..."
+    print "Node.js is not installed. Installing Node.js..." "green" "black" "bold"
     curl -sL https://deb.nodesource.com/setup_14.x | bash -
     apt install -y nodejs
 fi
 
 # NPM Installation Check
 if command -v npm &>/dev/null; then
-    echo "npm is already installed."
+    print "npm is already installed." "yellow" "black" "bold"
 else
-    echo "npm is not installed. Installing npm..."
+    print "npm is not installed. Installing npm..." "green" "black" "bold"
     apt install -y npm
 fi
 
 # Yarn Installation Check
 if command -v yarn &>/dev/null; then
-    echo "yarn is already installed."
+    print  "yarn is already installed." "yellow" "black" "bold"
 else
-    echo "yarn is not installed. Installing yarn..."
+    print "yarn is not installed. Installing yarn..." "green" "black" "bold"    
     npm install -g yarn
 fi
 
-echo "All required packages are installed."
+print "All required packages are installed." "green" "black" "underline"
 
 # Docker Installation Check
 if command -v docker &>/dev/null; then
-    echo "Docker is already installed."
+    echo "Docker is already installed." "yellow" "black" "bold"
 else
-    echo "Docker is not installed. Installing Docker..."
+    print "Docker is not installed. Installing Docker..." "green" "black" "bold"
     curl -fsSL https://get.docker.com -o get-docker.sh
     sh get-docker.sh
     usermod -aG docker "$USER"
@@ -71,10 +72,9 @@ fi
 
 # Docker Compose Installation Check
 if command -v docker-compose &>/dev/null; then
-    echo "Docker Compose is already installed."
+    print "Docker Compose is already installed." "yellow" "black" "bold"
 else
-    echo "Docker Compose is not installed. Installing Docker Compose..."
+    print "Docker Compose is not installed. Installing Docker Compose..." "green" "black" "bold"
     apt install -y docker-compose
 fi
-
-echo "System configuration completed!"
+print "SYSTEM SETUP COMPLETE 🚀" "green" "black" "bold" "underline"

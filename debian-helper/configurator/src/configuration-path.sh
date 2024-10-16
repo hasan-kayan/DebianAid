@@ -1,3 +1,4 @@
+source ../../style.sh   # Change to the path of your style.sh file
 # Function: create_config_dir
 # Description: Create the configuration directory if it does not exist
 function create_config_dir() {
@@ -5,8 +6,9 @@ function create_config_dir() {
     
     if [ ! -d "$CONFIG_DIR" ]; then
         mkdir -p "$CONFIG_DIR"
-        echo "Configuration directory created at $CONFIG_DIR."
+        print "Configuration directory created at $CONFIG_DIR" "cyan" "black" "bold"
+        
     else
-        echo "Configuration directory already exists at $CONFIG_DIR."
+        print "Configuration directory already exists at $CONFIG_DIR" "yellow" "black" "bold"
     fi
 }

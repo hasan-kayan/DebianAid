@@ -1,20 +1,20 @@
 #!/bin/bash --> os-setup.sh
-
+source ../../../style.sh
 # Check if script is running as root
 if [ "$(id -u)" -ne 0 ]; then
-    echo "This script must be run as root. Use sudo."
+    print "Please run as root." "red" "black" "bold"
     exit 1
 fi
 
 # Function to check and configure swap
 configure_swap() {
-    echo "Checking for existing swap..."
+    print "Checking swap space..." "green" "black" "bold"
     if free | grep -i swap > /dev/null; then
-        echo "Swap is already configured."
+        print "Swap space is already enabled." "yellow" "black" "bold"
         # Display current swap size
         free -h | grep -i swap
     else
-        echo "No swap found, creating swapfile..."
+       print "Swap space is not enabled. Creating swap file..." "green" "black" "bold"
         fallocate -l 4G /swapfile  # Create 4GB swapfile (Adjust size if needed)
         chmod 600 /swapfile
         mkswap /swapfile

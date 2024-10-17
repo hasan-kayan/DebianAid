@@ -2,7 +2,7 @@
 source ../style.sh
 
 # Git Configuration
-echo "Configuring Git..."
+print "Configuring Git..." "green" "black" "bold"
 git config --global user.name "Your Name"  # Replace with your actual name
 git config --global user.email "your_email@example.com"  # Replace with your actual email
 
@@ -61,7 +61,7 @@ print "All required packages are installed." "green" "black" "underline"
 
 # Docker Installation Check
 if command -v docker &>/dev/null; then
-    echo "Docker is already installed." "yellow" "black" "bold"
+    print "Docker is already installed." "yellow" "black" "bold"
 else
     print "Docker is not installed. Installing Docker..." "green" "black" "bold"
     curl -fsSL https://get.docker.com -o get-docker.sh

@@ -24,7 +24,7 @@ configure_swap() {
     fi
 }
 
-# Function to update GRUB bootloader
+# Function to update GRUB bootloader    
 update_grub() {
     echo "Updating GRUB bootloader..."
     grub-install /dev/sda  # Replace with correct boot device (e.g., /dev/nvme0n1 for NVMe drives)
